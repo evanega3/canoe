@@ -23,8 +23,7 @@ final class UpdateFundUseCase
         FundsRepository $fundsRepository,
         CompaniesRepository $companiesRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ) {
         $this->fundsRepository = $fundsRepository;
         $this->companiesRepository = $companiesRepository;
         $this->entityManager = $entityManager;
@@ -37,11 +36,11 @@ final class UpdateFundUseCase
     {
         $requestFundData = new RequestUpdateFundData($data);
 
-        if($this->fundsRepository->findOneBy(['name' => $requestFundData->getName()])){
+        if ($this->fundsRepository->findOneBy(['name' => $requestFundData->getName()])) {
             throw new Exception('Fund already exists. Use another name.', Response::HTTP_FORBIDDEN);
         }
 
-        if($aliases = $this->fundsRepository->findAliases($requestFundData->getAliases(), $requestFundData->getFundManager())){
+        if ($aliases = $this->fundsRepository->findAliases($requestFundData->getAliases(), $requestFundData->getFundManager())) {
             $exception = new CustomException('Duplicated Fund', Response::HTTP_FORBIDDEN);
             $exception->setData(json_encode($aliases));
 
@@ -57,7 +56,7 @@ final class UpdateFundUseCase
             $this->updateFund($fund, $requestFundData);
 
             return $fund;
-        }catch (Exception $exception){
+        } catch (Exception $exception) {
             $this->entityManager->rollback();
             throw $exception;
         }

@@ -18,8 +18,7 @@ final class CreateCompanyUseCase
     public function __construct(
         CompaniesRepository $companiesRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ) {
         $this->companiesRepository = $companiesRepository;
         $this->entityManager = $entityManager;
     }
@@ -31,7 +30,7 @@ final class CreateCompanyUseCase
     {
         $requestCompanyData = new RequestCreateCompanyData($data);
 
-        if($this->companiesRepository->findOneBy(['name' => $requestCompanyData->getName()])){
+        if ($this->companiesRepository->findOneBy(['name' => $requestCompanyData->getName()])) {
             throw new \Exception('Company already exists.', Response::HTTP_FORBIDDEN);
         }
 
@@ -44,7 +43,7 @@ final class CreateCompanyUseCase
             $this->entityManager->commit();
 
             return $company;
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             $this->entityManager->rollback();
             throw $exception;
         }

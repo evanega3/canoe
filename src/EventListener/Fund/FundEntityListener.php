@@ -26,7 +26,7 @@ class FundEntityListener
     {
         $entity = $persistEventArgs->getObject();
 
-        if(!$entity instanceof Funds){
+        if (!$entity instanceof Funds) {
             $aliasesChecker = $this->fundsRepository->findAliases($funds->getAliases(), $funds->getManager()->getId());
 
             return new APIResponse(
@@ -35,7 +35,7 @@ class FundEntityListener
                 [],
                 Response::HTTP_NOT_FOUND
             );
-        }else{
+        } else {
             return new APIResponse(
                 'Error.',
                 [],

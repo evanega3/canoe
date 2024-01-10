@@ -6,5 +6,4 @@ use App\ApiResource\DTO\BaseSearchRequest;
 
 class RequestSearchFund extends BaseSearchRequest
 {
-
 }

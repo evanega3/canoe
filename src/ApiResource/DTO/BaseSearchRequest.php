@@ -15,7 +15,7 @@ class BaseSearchRequest
 
     public function getPage(): int
     {
-        return isset($this->data['page']) ? (int)$this->data['page'] : 1;
+        return isset($this->data['page']) ? (int) $this->data['page'] : 1;
     }
 
     public function getOrderBy(): array

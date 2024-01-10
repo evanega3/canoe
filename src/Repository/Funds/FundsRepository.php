@@ -39,7 +39,7 @@ class FundsRepository extends ServiceEntityRepository
     {
         $search = $this->createQueryBuilder('f');
 
-        foreach ($aliases as $alias){
+        foreach ($aliases as $alias) {
             $search = $search->orWhere('f.aliases LIKE :alias AND f.manager = :manager')
                 ->setParameter('alias', '%'.$alias.'%')
                 ->setParameter('manager', $manager);

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
 use App\Repository\Companies\CompaniesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -129,7 +128,7 @@ class Companies
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'created_at' => $this->getCreatedAt()
+            'created_at' => $this->getCreatedAt(),
         ];
     }
 }

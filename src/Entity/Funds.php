@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
 use App\ApiResource\DTO\Fund\RequestUpdateFundData;
 use App\Repository\Funds\FundsRepository;
 use Doctrine\DBAL\Types\Types;
@@ -44,8 +43,7 @@ class Funds
         string $name,
         Companies $manager,
         array $aliases
-    )
-    {
+    ) {
         $this->name = $name;
         $this->manager = $manager;
         $this->aliases = $aliases;
@@ -151,10 +149,10 @@ class Funds
             'manager' => [
                 'id' => $this->getManager()->getId(),
                 'name' => $this->getManager()->getName(),
-                'created_at' => $this->getManager()->getCreatedAt()
+                'created_at' => $this->getManager()->getCreatedAt(),
             ],
             'aliases' => $this->getAliases(),
-            'created_at' => $this->getCreatedAt()
+            'created_at' => $this->getCreatedAt(),
         ];
     }
 

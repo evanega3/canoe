@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\ApiResource\DTO\Company;
+
 use Symfony\Component\HttpFoundation\Response;
 
 final class RequestCreateCompanyData
