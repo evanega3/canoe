@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "ddfc6df2-176e-4680-b607-6490fa503425",
+		"name": "Canoe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31592032"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Canoe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/v1/create/company",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"create",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.4.5"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{ _.token }}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/api/v1/search/company?name=Canoe&order_by=id&sort=asc",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"search",
+								"company"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Canoe"
+								},
+								{
+									"key": "order_by",
+									"value": "id"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fund",
+			"item": [
+				{
+					"name": "Create Fund",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Canoe Fund\",\n    \"start_year\": \"2025-12-01\",\n    \"manager\": 1,\n    \"aliases\": [\"canoe\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/v1/create/fund",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"create",
+								"fund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Fund Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Canoe Fund\",\n    \"start_year\": \"2025-12-01\",\n    \"manager\": 1,\n    \"aliases\": [\"canoe\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/v1/update/fund/10",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"update",
+								"fund",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Funds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/8.4.5"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{ _.token }}"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/api/v1/search/fund?name=fund&order_by=id&sort=asc&start_year=2024",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"search",
+								"fund"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "fund"
+								},
+								{
+									"key": "order_by",
+									"value": "id"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								},
+								{
+									"key": "start_year",
+									"value": "2024"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "canoe.local"
+		}
+	]
+}
