@@ -1,4 +1,5 @@
 **Clarifications**
+
 I did not use Fund Managers table because Symfony does this relations behind seens, in this case the relationship ManyToOne from Funds to Companies. Specified on fields **Funds.company** and **Companies.funds**. Also added 3 extra fields per table (created_at, updated_at and deleted_at for soft-deletes). I tried to make it as clean as I could, using DTO's for variables processing on end-point requests, also implemented UseCases for Created, Updated and Search.
 
 **ER Diagram**
