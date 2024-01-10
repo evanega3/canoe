@@ -30,7 +30,7 @@ After is done, run the following command:
 
 After running the above command your database should look like this:
 
-![image](https://github.com/evanega3/canoe/assets/968968migrations/Canoe.postman_collection.json/a8bd1bd6-73d7-4246-81b0-344f9f44f0ee)
+![image](https://github.com/evanega3/canoe/assets/968968/fbfd7d25-898d-4377-b063-29514f4a0547)
 
 **Step 5**
 
@@ -40,7 +40,7 @@ Import the Postman collection
 
 You should be seeing something like the following after import:
 
-![image](https://github.com/evanega3/canoe/assets/968968/0d686128-ff7c-44ff-b9a3-4915b9aad6f8)
+![image](https://github.com/evanega3/canoe/assets/968968/4ae612e3-cc64-47bd-8a53-80c40935f0c5)
 
 **Step 6**
 
