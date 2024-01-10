@@ -147,7 +147,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Fund Copy",
+					"name": "Update Fund",
 					"request": {
 						"method": "PUT",
 						"header": [
