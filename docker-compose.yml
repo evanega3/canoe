@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  canoe-be:
+    container_name: canoe-be
+    build:
+      context: ./docker/php8.3-apache
+      args:
+        UID: $U_ID
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www/canoe
+    depends_on:
+      - canoe-db
+    networks:
+      - canoe-network
+
+  canoe-db:
+    container_name: canoe-db
+    image: mysql:8.0.35-debian
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: canoe-db
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: appuser_pass
+    volumes:
+      - canoe-db-data:/var/lib/mysql
+    networks:
+      - canoe-network
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+networks:
+  canoe-network:
+    external: true
+
+volumes:
+  canoe-db-data:
